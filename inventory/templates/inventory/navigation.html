@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <a class="nav-brand" href="{% url 'index' %}" > Inventory Manager </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" arial-expanded="false" arial-label="Toggle navigation">
+            <span class="nav-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse justify-content" id="navbarNav">
+        {% if user.is_authenticated %}
+            <a class="nav-link" href="#" >{{ user.username }}</a>
+            <p>&nbsp;&nbsp;&nbsp;</p>
+            <a class="nav-link" href="{% url 'logout'%}" >logOut</a>
+            <p>&nbsp;&nbsp;</p>
+        {% else %}
+            <a class="nav-link" href="{% url 'login'%}" >LogIn</a>
+            <p>&nbsp;&nbsp;&nbsp;</p>
+            <a class="nav-link" href="{% url 'signup'%}" >SignUp</a>
+            <p>&nbsp;&nbsp;</p>
+        {% endif %}
+
+        </div>
+</nav>
